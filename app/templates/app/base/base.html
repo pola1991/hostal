@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- {% block css %} {% endblock css%}-->
+    <title>Document</title>
+</head>
+<body class="body">
+    <header id="header">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img class="logo" src="{% static 'image/logo.png' %}" alt="">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link active fw-bold"  style="color: #0097B2; font-size: 18px;" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="#">Contacto</a>
+              </li>
+             
+              {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle fw-bold"  style="color: #0097B2; font-size: 18px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Reservas
+                </a>
+                <ul class="dropdown-menu ms-auto">
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Comedor</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="#">Habitación</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'addProveedor' %}">Proveedores</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Generar ordén de Compra</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'logout' %}">Cerrar Sesión</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'login' %}">Iniciar Sesión</a>
+              </li>
+              {% endif %}
+              
+            </ul>
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                </svg> {{ user.username }}</a>
+              </li>
+            </ul>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div id="contenido">
+    {% block contenido %}
+
+      
+
+    {% endblock %}
+    </div>
+    <footer id="footer">
+        <div class="container-fluid">
+          
+          <div  class="row p-5 text-white" style="background-color: #0097B2"> 
+
+            <div class="col-xs-12 col-md-6 col-lg-3">
+              <p><img class="logoFooter" src="{% static 'image/logo.png' %}" alt=""></p>
+
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-3">
+              <p class="h5" >Links</p>
+              <div class="mb-2">
+                <a class="text-white text-decoration-none" href="">bla</a>
+              </div>
+              <div class="mb-2">
+                <a class="text-white text-decoration-none" href="">bla</a>
+              </div>
+            </div>
+            
+            <div class="col-xs-12 col-md-6 col-lg-3">
+              <p class="h5">Contacto</p>
+              <div class="mb-2">
+                <a class="text-white text-decoration-none" href="">bla</a>
+              </div>
+              <div class="mb-2">
+                <a class="text-white text-decoration-none" href="">bla</a>
+              </div>
+            </div>
+              
+            <div class="col-xs-12 col-md-6 col-lg-3">
+              <p class="h5" >Columna</p>
+              <div class="mb-2">
+                <a class="text-white text-decoration-none" href="">bla</a>
+              </div>
+              <div class="mb-2">
+                <a class="text-white text-decoration-none" href="">bla</a>
+              </div>
+              
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</html>

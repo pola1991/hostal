@@ -1,0 +1,24 @@
+
+
+.logo{
+    height: 90px;
+}
+
+
+.carousel-item {
+    height: 650px;
+  }
+  
+.carousel-item img {
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .navbar-nav .nav-link {
+    color: brown;}
+
+
+.logoFooter{
+  height: 100px;
+  border-radius: 50px;
+}

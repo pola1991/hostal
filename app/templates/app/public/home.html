@@ -1,0 +1,45 @@
+{% extends 'app/base/base.html' %}
+{% load static %}
+
+{% block css %}
+
+{% endblock css %}
+
+{% block contenido %}
+
+
+<div class="container op-navbarlist">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/102893386.jpg?k=c93b35cc7e6df222fc4bf445b6f8ba2d2a1d2c1aa50a32d02dda1191f2c57d95&o=&hp=1" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/104809904.jpg?k=f4842bbc91e4b1f1659877f1b8c496b78266204c05457a40ab6e120314637be2&o=&hp=1" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/104809866.jpg?k=4081e6cd733e297ac6282c5383a808927ce8f90c0398279b42c77b144109ba54&o=&hp=1" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+
+<div>
+  <h1 class="rojo"></h1>
+</div>
+
+{% endblock %}
