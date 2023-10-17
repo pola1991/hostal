@@ -14,9 +14,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings #Es para traer las variables de settings media_url, media_root
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,3 +30,7 @@ urlpatterns = [
 if settings.DEBUG:
 	from django.conf.urls.static import static
 	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+#Esta enlazando, cuando alguien va a buscar algo a MEDIA_URL, lo irá a buscar a MEDIA_ROOT
+#Esto es solo cuando esta el poryecto en desarrollo
+# Si esta en produccion hay que montar una ngnet

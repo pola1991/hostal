@@ -30,6 +30,7 @@ class Habitacion(models.Model):
     precio = models.IntegerField()
     n_camas = models.IntegerField()
     descripcion = models.TextField()
+    imagen = models.ImageField(upload_to="habitaciones", null=True)
     estado_habitacion = models.CharField(max_length=50, choices=DISPONIBILIDAD_CHOICES)
 
     class Meta:
