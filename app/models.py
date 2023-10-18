@@ -9,6 +9,7 @@ class Usuario(AbstractUser):
     nombre_empresa = models.CharField(max_length=100, blank=True, null=True)
     rut_empresa = models.CharField(max_length=15)
     cargo = models.CharField(max_length=100, blank=True, null=True)
+    imagen = models.ImageField(upload_to="iconoUsuario", default= "user.png")
 
     class Meta:
         verbose_name = 'Usuario'

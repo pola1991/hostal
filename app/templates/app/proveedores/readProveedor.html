@@ -1,55 +1,46 @@
-{% extends 'dos_alamos/base.html' %}
+{% extends 'app/base/base.html' %}
 {% load crispy_forms_tags %}
-{% block content %} 
+{% block contenido %} 
 
-    </header>
-      <div>
-        <div class="container">
-            
-            <h1 class="card-header" style="text-align: center;" > Gestión de Médicos </h1>
-           
-            <h1 class="card-header" style="text-align: center;"> Mis reservas de hora </h1>
+   
       
-            <table class="table" style="border: 1px solid black;">
-                <div class="alert alert-success" role="alert"></div>
-                <thead>
+        <div class="container">
+             
+            <h1 class="card-header"> Gestión de Proveedores </h1>
+            <br>
+            <table class="table" >
+                <thead style="color: #0097B2">
                     <tr>
-                        <th class="scope"> #</th>
-                        <th class="scope"> NOMBRES </th>
-                        <th class="scope"> APELLIDOS </th>
-                        <th class="scope"> ESPECIALIDAD </th>
-                       
-                        {% if user.username == 'paula' or user.username == 'admin' %}
+                        <th class="scope"style="color: #0097B2"> ● </th>
+                        <th class="scope"> NOMBRE </th>
+                        <th class="scope"> RUBRO </th>
+                        <th class="scope"> CONTACTO </th>
+                        <th class="scope"> DESCRIPCIÓN </th>
                         <th class="scope"> BORRAR</th>
-                        {% endif %}
-
-
+                        
                     </tr>
                 </thead>
-                <tbody>
-                    {%for i in medico%}
+                <tbody style="color: #025b6a">
+                    {% for p in proveedor %}
 
                     <tr>
-                        <td>⋇</td>
-                        <td>{{i.nombres}}</td>
-                        <td>{{i.apellidos}}</td>
-                        <td>{{i.especialidad.nombre}}</td>
+                        <td style="color: #0097B2">● </td>
+                        <td>{{p.nombre}}</td>
+                        <td>{{p.rubro}}</td>
+                        <td>{{p.contacto}}</td>
+                        <td>{{p.otro}}</td>
                         
                         
                       
-                        {% if user.username == 'paula' or user.username == 'admin' %}
+                        
                     
-                        <td><a href="{% url 'eliminar_m' i.id %}">❌</a></td>
+                        <td><a href="">❌</a></td>
                         
-
                        
-                        
-                        {% endif %}
-                
                     </tr>
                     {% endfor %}
 
                 </tbody>
             </table>
-        </div>
-        {% endblock %} 
+        
+{% endblock %} 

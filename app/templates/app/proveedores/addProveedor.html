@@ -6,8 +6,7 @@
         <div class="container, col-12 col-md-6 offset-md-3">
         <div class="card">
           <div class="card-header">
-        
-            <center><h1>Añadir Proveedor</h1></center>
+            <h1>Añadir Proveedor</h1>
           </div>
           <div class="card-body">
             <form   method="POST" id="formulario">
@@ -20,13 +19,14 @@
              <div class="d-flex justify-content-end mb-3">
               
               
-              <input type="submit" value="Registrar" class="btn btn-success">
+              <input type="submit" value="Registrar" class="btn" style="color: white; background-color: #0097B2">
+
               &nbsp;
           </div>
           </form>
           
           {% if  mensaje%}
-          <center><h4 class="alert alert-success ">{{mensaje}}</h4></center>
+          <h4 class="alert alert-success ">{{mensaje}}</h4>
           {% endif %}
           </div>
           </div>

@@ -1,0 +1,22 @@
+{% extends 'app/base/base.html' %}
+{% block contenido %}
+
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="{{user.imagen.url}}" class="card-img-top" alt="...">
+        <ul class="list-group list-group-flush">          
+          <li class="list-group-item">
+            <h5 class="card-title">Empresa</h5>
+            <p class="card-text">{{user.nombre_empresa}}</p>
+          </li>
+          <li class="list-group-item">Rut : {{user.rut_empresa}}</li>
+          <li class="list-group-item">A third item</li>
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
