@@ -38,9 +38,33 @@ def registroCliente(request):
             user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
             login(request, user)
             print("Registro guardado exitosamente")
-            return redirect('home')  # Reemplaza 'home' con el nombre de tu vista de página de inicio
+            return redirect('home') 
 
     return render(request, 'registration/registroCliente.html', data)
+
+
+def registroEmpleado(request):
+
+    data = {
+        'form': EmpleadoForm()
+    }
+
+    if request.method == 'POST':
+        formulario = EmpleadoForm(data=request.POST)
+        if formulario.is_valid():
+            empresa = formulario.save(commit=False)
+            empresa.nombre_empresa == "Doña Clarita"
+            empresa.es_empleado = True  
+            empresa.save()
+            user = authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
+            login(request, user)
+            print("Registro guardado exitosamente")
+            return redirect('home') 
+
+    return render(request, 'registration/registroEmpleado.html', data)
+
+
+
 
 
 def readProveedor(request):
