@@ -7,17 +7,6 @@ def home(request):
     return render(request, 'app/public/home.html')
 
 
-def loginEmpresa(request):
-    data = {
-        'form' : CustomAuthenticationForm
-    }
-    if request.method == 'POST':
-        form = CustomAuthenticationForm
-        form.save
-
-    return  render(request, 'registration/loginEmpresa.html', data)
-
-
 def addProveedor(request):
     data = {
         'form' : ProveedorForm()

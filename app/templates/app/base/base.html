@@ -35,11 +35,21 @@
                   Reservas
                 </a>
                 <ul class="dropdown-menu ms-auto">
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Comedor</a></li>
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="#">Habitación</a></li>
+                  {% if user.username == 'paula' %}
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Administrar Comedor</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="#">Administrar Habitaciones</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'addProveedor' %}">Añadir Proveedor</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readProveedor' %}">Ver Proveedores</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Añadir Huesped</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Generar ordén de Compra</a></li>
+                  {% endif %}
+                  {%  if user.es_empleado and user.username != 'paula' %}
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readProveedor' %}">Orden de Pedidos</a></li>
+                  {% endif %}
+                  {% if user.es_cliente == True %}
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="#">Ver Habitaciones</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="#">Ver Platos</a></li>
+                  {% endif %}
                 </ul>
               </li>
               <li class="nav-item">
@@ -57,11 +67,11 @@
               <li class="nav-item">
                 {% if user.es_cliente == True %}
                 <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'perfilCliente' %}" >
-                  {{ user.nombre_empresa }} <img src="{{user.imagen.url}}" style="width: 30px; height: 30px;" alt="" href="{% url 'perfilCliente' %}"></a>
+                  {{ user.nombre_empresa }} <img src="{{user.imagen.url}}" style="width: 100px; height: 100px;" alt="" href="{% url 'perfilCliente' %}"></a>
 
                 {% else  %}
                 <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'perfilCliente' %}" >
-                 {{ user.username }} <img src="{{user.imagen.url}}" style="width: 30px; height: 30px;" alt="" href="{% url 'perfilCliente' %}"></a>
+                 {{ user.username }} <img class="profilesmall"  src="{{user.imagen.url}}" alt="" href="{% url 'perfilCliente' %}"></a>
                 {% endif %}
               </li>
             </ul>

@@ -63,4 +63,47 @@ html, body {
   color:#025b6a;
   text-align: center;
 }
+ .card-title{
+  color:#025b6a;
+  text-align: center;
+ }
 
+ .profilepic {
+  max-width: 50%;
+  height: auto;
+  object-fit:cover;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+}
+
+.profilesmall{
+  width: 30px !important;
+  height: 30px !important; 
+  border-radius: 30% !important;
+}
+
+.card-container {
+  max-width: 80%;
+   /* Espacio entre la tarjeta y la imagen */
+}
+
+.imagenHostal{
+  width: 100%;
+  border-radius: 15%;
+}
+
+.mitad1 {
+  float: left;
+  width: 50%;
+  
+}
+.card-container{
+  width: 80%;
+}
+
+.mitad2 {
+  float: right;
+  width: 50%;
+  
+}
