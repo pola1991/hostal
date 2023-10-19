@@ -10,6 +10,10 @@ class clienteForm(UserCreationForm):
         fields = [ "username" ,"nombre_empresa", "rut_empresa", "email", "password1", "password2"]
 
 
+class EmpleadoForm(UserCreationForm):
+     class Meta:
+        model = Usuario
+        fields = [ "username" ,"first_name","last_name" , "cargo", "email", "password1", "password2"]
 
 class ProveedorForm(forms.ModelForm):
     class Meta: 
@@ -24,3 +28,6 @@ class usuarioForm(forms.ModelForm):
                 fields = ['nombre_empresa', 'rut_empresa','email','imagen']
             if (Usuario.es_empleado) == True:
                  fields = ['first_name', 'last_name', 'cargo', 'email']
+
+
+     
