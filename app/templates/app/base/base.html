@@ -68,11 +68,11 @@
               <li class="nav-item">
                 {% if user.es_cliente == True %}
                 <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'perfilCliente' %}" >
-                  {{ user.nombre_empresa }} <img src="{{user.imagen.url}}" style="width: 100px; height: 100px;" alt="" href="{% url 'perfilCliente' %}"></a>
+                  {{ user.nombre_empresa }} <img src="{{user.imagen.url}}" class="profilesmall"  alt="" href="{% url 'perfilCliente' %}"></a>
 
                 {% else  %}
                 <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'perfilCliente' %}" >
-                 {{ user.username }} <img class="profilesmall"  src="{{user.imagen.url}}" alt="" href="{% url 'perfilCliente' %}"></a>
+                 {{ user.username | capfirst}} <img class="profilesmall"  src="{{user.imagen.url}}" alt="" href="{% url 'perfilCliente' %}"></a>
                 {% endif %}
               </li>
             </ul>
