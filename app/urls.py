@@ -10,5 +10,6 @@ urlpatterns = [
     path('perfilCliente/', perfilCliente, name='perfilCliente'),
     path('addProveedor/', addProveedor, name='addProveedor'),
     path('readProveedor/', readProveedor, name='readProveedor'),
+    path('eliminarProveedor/<id>/',eliminarProveedor,name='eliminarProveedor'),
     
 ]

@@ -88,3 +88,13 @@ def perfilCliente(request):
     
 
     return render(request, 'app/clientes/perfilCliente.html')
+
+
+def eliminarProveedor(request, id):
+    proveedor = Proveedor.objects.get(id=id)
+
+    if request.method == 'POST':
+        proveedor.delete()
+        return redirect('readProveedor')
+
+    return render(request, 'app/proveedores/eliminarProveedor.html', {'proveedor': proveedor})
