@@ -1,21 +1,30 @@
 from behave import given,when,then
-from webapp import webapp
+from conexion import webapp
 
 driver = webapp.get_driver()
-@given('Acceso a la url "{url}"')
-def step_acceso_a_la_url(context,url)
-    driver.get('http://127.0.0.1:8000/accounts/login/')
+@given(u'Accedo a la url "{url}"')
+def step_acceso_a_la_url(context,url):
+    #http://127.0.0.1:8000/accounts/login/
+    driver.get(url)
 
-@when('Localiza enlace iniciar sesion "{link}"')
-def localiza_enlace_login(context,link)
-    driver.find_element_by_link_text(link).click()
+@when(u'hago click en enlace "{link}"')
+def localiza_enlace_login(context,link):
+    #//*[@id="navbarNavDropdown"]/ul/li[3]/a
+    driver.find_element_by_xpath(link).click()
     driver.implicitly_wait(5)
 
-@when('Ingresa credenciales')
-def ingresa_credenciales(context)
-    driver.find_element_by_xpath("//*[@id='usuario']").clear()
-    driver.find_element_by_xpath("//*[@id='usuario']").send_keys("paula")
+@when(u'Ingresa las credenciales de acceso')
+def ingresa_credenciales(context):
+    driver.find_element_by_xpath("//*[@id='id_username']").clear()
+    driver.find_element_by_xpath("//*[@id='id_username']").send_keys("paula")
     driver.find_element_by_name('password').send_keys('12345678')
-    driver.find_element_by_name('enviar').click()
+    driver.find_element_by_xpath("/html/body/div/div/div/div/div[2]/form/div[3]/input").click()
 
-@then('ingresa a la cuenta')
+    
+
+@then(u'Puedo ingresar a la cuenta')
+def ingresa_a_la_cuenta(context):
+    if(driver.find_element_by_xpath("//*[@id='navbarNavDropdown']/ul[2]/li/a").is_displayed()):
+        print('login correcto')
+    else:
+        print('login fallido')
