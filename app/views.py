@@ -98,3 +98,38 @@ def eliminarProveedor(request, id):
         return redirect('readProveedor')
 
     return render(request, 'app/proveedores/eliminarProveedor.html', {'proveedor': proveedor})
+
+
+def hab(request):
+    habitacion = Habitacion.objects.all()
+    datos = {
+        'habitacion': habitacion
+    }
+    return render(request,'app/Habitaciones/hab.html',datos)
+
+def formu_create(request):
+    datos = {
+        'form' : HabitacionForm()
+    }
+    if request.method == 'POST':
+        formulario = HabitacionForm(request.POST)
+        if formulario.is_valid:
+            formulario.save()
+            datos ['mensaje'] = 'Guardado exitosamente'
+    return render(request,'app/Habitaciones/form.html',datos)
+
+def formu_update(request, id):
+    habitacion = Habitacion.objects.get(id=id) 
+    datos = {
+        'form': HabitacionForm(instance=habitacion)
+    }
+    return render(request, 'app/Habitaciones/formu_update.html', datos)
+
+def formu_delete(request, id):
+    try:
+        habitacion = Habitacion.objects.get(id=id)
+        habitacion.delete()
+        return redirect('hab')  # Redirige a la vista 'hab' después de eliminar
+    except Habitacion.DoesNotExist:
+        # Manejar el caso en el que la habitación no existe
+        return redirect('hab')  # Puedes redirigir a donde desees en este caso
