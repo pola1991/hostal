@@ -4,7 +4,6 @@ class WebApp:
     instance = None
     driver = None
     webapp = None
-    driverpath = "C://webdrivers//Chrome79//Chromedriver.exe"
     @classmethod
     def get_instancia(cls):
         if(cls.instance is None):
@@ -12,7 +11,7 @@ class WebApp:
         return cls.instance
 
     def __init__(self):
-        self.driver = webdriver.Chrome(self.driverpath)
+        self.driver = webdriver.Chrome()
 
     def get_driver(self):
         return self.driver
