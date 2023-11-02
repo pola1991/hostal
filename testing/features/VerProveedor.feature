@@ -8,3 +8,4 @@ Scenario: Inicio de sesion
     And Hago click en enlace para ver proveedores "#verProveedor"
     Then Puedo ver los proveedores "http://127.0.0.1:8000/readProveedor/"
 
+    

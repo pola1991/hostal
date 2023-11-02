@@ -6,6 +6,7 @@ driver = webapp.get_driver()
 @given(u'Accedo a la url "{url}"')
 def step_acceso_a_la_url(context,url):
     driver.get(url)
+    driver.maximize_window()
 
 @when(u'hago click en enlace "{link}"')
 def localiza_enlace_login(context,link):
