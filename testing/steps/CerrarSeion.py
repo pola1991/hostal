@@ -6,7 +6,7 @@ driver = webapp.get_driver()
 @given(u'Ingreso a la url para hacer inicio de sesion "{url}"')
 def step_acceso_a_la_url(context,url):
     driver.get(url)
-    
+    driver.maximize_window()
 
 @when(u'Ingreso las credenciales e ingreso a la cuenta')
 def ingresa_credenciales(context):

@@ -8,6 +8,7 @@ driver = webapp.get_driver()
 @given(u'Accedo a la url para hacer login con usuario incorrecto "{url}"')
 def step_acceso_a_la_url(context,url):
     driver.get(url)
+    driver.maximize_window()
 
 @when(u'hago click en enlace para hacer inicio de sesion con usuario incorrecto "{link}"')
 def localiza_enlace_login(context,link):
