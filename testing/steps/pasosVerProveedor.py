@@ -38,15 +38,10 @@ def hago_click_en_boton_reserva(context, link):
 
 @when(u'Hago click en enlace para ver proveedores "{link}"')
 def hago_click_en_enlace_ver_proveedores(context, link):
-    driver.find_element(By.XPATH, link).click()
+    driver.find_element(By.ID, "verProveedor").click()
 
 
-
-@then(u'Puedo ver los proveedores')
-def veo_proveedores(context):
-    expected_url = "http://127.0.0.1:8000/readProveedor/"  
-    current_url = driver.current_url
-    if current_url == expected_url:
-        print('Se ha redirigido a la página de proveedores correctamente.')
-    else:
-        print(f'Error al redirigirse a la página de proveedores. URL actual: {current_url}')
+@then(u'Puedo ver los proveedores "{url}"')
+def veo_proveedores(context,url):
+    driver.get(url)
+        
