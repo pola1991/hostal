@@ -29,5 +29,10 @@ class usuarioForm(forms.ModelForm):
             if (Usuario.es_empleado) == True:
                  fields = ['first_name', 'last_name', 'cargo', 'email']
 
+class HabitacionForm(forms.ModelForm):
+    class Meta:
+        model = Habitacion
+        fields = ['n_habitacion','nombre','precio','n_camas','descripcion','estado_habitacion','imagen']
+
 
      
