@@ -108,15 +108,16 @@ def hab(request):
     return render(request,'app/Habitaciones/hab.html',datos)
 
 def formu_create(request):
-    datos = {
-        'form' : HabitacionForm()
-    }
+    datos = {'form': HabitacionForm()}
+
     if request.method == 'POST':
         formulario = HabitacionForm(request.POST)
-        if formulario.is_valid:
+        if formulario.is_valid():  # Agrega los paréntesis para llamar al método is_valid
             formulario.save()
-            datos ['mensaje'] = 'Guardado exitosamente'
-    return render(request,'app/Habitaciones/form.html',datos)
+            datos['mensaje'] = 'Guardado exitosamente'
+            return redirect('hab')  # Redirige a la página que desees después de guardar
+
+    return render(request, 'app/Habitaciones/form.html', datos)
 
 def formu_update(request, id):
     habitacion = Habitacion.objects.get(id=id) 
