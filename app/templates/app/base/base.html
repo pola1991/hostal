@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ">
               <li class="nav-item">
-                <a class="nav-link active fw-bold"  style="color: #0097B2; font-size: 18px;" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link active fw-bold"  style="color: #0097B2; font-size: 18px;" aria-current="page" href="{% url 'home' %}">Inicio</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="#">Contacto</a>
@@ -38,7 +38,8 @@
                   {% if user.username == 'paula' %}
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'registroEmpleado' %}">Añadir empleado</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Administrar Comedor</a></li>
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="#">Administrar Habitaciones</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'formu_create' %}">Añadir Habitaciones</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'hab' %}">Administrar Habitaciones</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'addProveedor' %}" id="registrarProveedor" >Añadir Proveedor</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readProveedor' %}" id="verProveedor">Ver Proveedores</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Añadir Huesped</a></li>
@@ -59,6 +60,9 @@
               {% else %}
               <li class="nav-item">
                 <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'login' %}">Iniciar Sesión</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link fw-bold"  style="color: #0097B2; font-size: 18px;" href="{% url 'registroCliente' %}">Registrarse</a>
               </li>
               {% endif %}
               
@@ -83,6 +87,7 @@
     </header>
 
     <div id="contenido">
+      
     {% block contenido %}
 
       

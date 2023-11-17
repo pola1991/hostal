@@ -16,22 +16,20 @@
 <body>
 
     <div class="container">
-    <div class="container">
         <div class="row">
-         <center><h1>Formulario CREATE</h1></center>
-             {% csrf_token %}
-         </div>
-        
-    {{form|crispy}}
-    <br>
-    <a href="{% url 'hab' %}"><button class="btn btn-success">Home</button></a>
-    <button type="submit" class="btn btn-success" >Save</button>
-    <br>
-    <br>
-        <div class="alert alert-success">{{mensaje}}</div>
+            <center><h1>Formulario CREATE</h1></center>
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <br>
+                <a href="{% url 'hab' %}"><button class="btn btn-success">Home</button></a>
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+            <br>
+            <br>
+            <div class="alert alert-success">{{ mensaje }}</div>
         </div>
-        
-</div>
+    </div>
 
    
 
@@ -42,3 +40,5 @@
     
 </body>
 </html>
+
+   

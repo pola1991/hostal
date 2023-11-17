@@ -30,7 +30,10 @@ ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = "/"   # Muy importante para entrar y redireccionar login
 LOGOUT_REDIRECT_URL = "/"   # Muy importante para entrar y redireccionar logout
 
-# Application definition
+
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 
 INSTALLED_APPS = [
     'app',
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+ 
     
     
 ]
@@ -58,6 +62,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+   
+    
+    
 ]
 
 ROOT_URLCONF = 'hostal.urls'
@@ -89,7 +96,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hostal',
         'USER': 'root',
-        'PASSWORD': 'vespucio.2021',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }

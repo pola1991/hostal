@@ -48,11 +48,12 @@
                     <th>{{i.descripcion}}</th>
                     <th>{{i.estado_habitacion}}</th>
                     <th>{{i.imagen}}</th>
-                </tr>
+               
                 <th> <a href="{% url 'formu_update' i.id%}"><button class="btn btn-warning" style="color: white;">UPDATE</button></a></th>
                 <th> <a href="{% url 'formu_delete' i.id%}"><button class="btn btn-danger" style="color: white;">DELETE</button></a></th>
                        
                 {% endfor %}
+            </tr>
             </tbody>
         </table>
         <a href="{% url 'formu_create'%}"><button class="btn btn-success">Create</button></a>

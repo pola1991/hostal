@@ -33,6 +33,7 @@ class HabitacionForm(forms.ModelForm):
     class Meta:
         model = Habitacion
         fields = ['n_habitacion','nombre','precio','n_camas','descripcion','estado_habitacion','imagen']
+        required = {'imagen': False}
 
 
      
