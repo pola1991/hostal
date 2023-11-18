@@ -91,7 +91,12 @@ def perfilCliente(request):
 
 
 def eliminarProveedor(request, id):
-    proveedor = Proveedor.objects.get(id=id)
+    
+
+    try:
+        proveedor = Proveedor.objects.get(id=id)
+    except:
+        return redirect('readProveedor')
 
     if request.method == 'POST':
         proveedor.delete()
@@ -120,7 +125,13 @@ def formu_create(request):
     return render(request, 'app/Habitaciones/form.html', datos)
 
 def formu_update(request, id):
-    habitacion = Habitacion.objects.get(id=id) 
+    
+
+    try:
+        habitacion = Habitacion.objects.get(id=id) 
+    except:
+        return render(request, 'app/Habitaciones/hab.html')
+
     datos = {
         'form': HabitacionForm(instance=habitacion)
     }
