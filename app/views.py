@@ -145,3 +145,45 @@ def formu_delete(request, id):
     except Habitacion.DoesNotExist:
         # Manejar el caso en el que la habitación no existe
         return redirect('hab')  # Puedes redirigir a donde desees en este caso
+
+def huespedes(request):
+    huesped = Huesped.objects.all()
+    datos = {
+        'huesped': huesped
+    }
+    return render(request,'app/Huespedes/huespedes.html',datos)
+
+def formu_createh(request):
+    datos = {'form': HuespedForm()}
+
+    if request.method == 'POST':
+        formulario = HuespedForm(request.POST)
+        if formulario.is_valid():  # Agrega los paréntesis para llamar al método is_valid
+            formulario.save()
+            return redirect('huespedes')  # Redirige a la página que desees después de guardar
+
+    return render(request, 'app/Huespedes/formh.html', datos)
+
+def formu_updateh(request, id):
+    
+
+    try:
+        huesped = Huesped.objects.get(id=id) 
+    except:
+        return render(request, 'app/Huespedes/huespedes.html')
+
+    datos = {
+        'form': HuespedForm(instance=huesped)
+    }
+    return render(request, 'app/Huespedes/formu_updateh.html', datos)
+
+def formu_deleteh(request, id):
+    try:
+        huesped = Huesped.objects.get(id=id)
+        huesped.delete()
+        return redirect('huespedes')  # Redirige a la vista 'hab' después de eliminar
+    except Huesped.DoesNotExist:
+        # Manejar el caso en el que la habitación no existe
+        return redirect('huespedes')  # Puedes redirigir a donde desees en este caso
+
+
