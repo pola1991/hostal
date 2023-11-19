@@ -15,5 +15,9 @@ urlpatterns = [
     path('formu_create',formu_create,name='formu_create'),
     path('formu_update/<int:id>', formu_update, name='formu_update'),
     path('formu_delete/<int:id>/', formu_delete, name='formu_delete'),
+    path('huespedes',huespedes,name='huespedes'),
+    path('formu_createh',formu_createh,name='formu_createh'),
+    path('formu_updateh/<int:id>', formu_updateh, name='formu_updateh'),
+    path('formu_deleteh/<int:id>/', formu_deleteh, name='formu_deleteh'),
     
 ]
