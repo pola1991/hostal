@@ -3,12 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import *
 from django.contrib.auth.forms import AuthenticationForm
 
-
 class clienteForm(UserCreationForm):
     class Meta:
         model = Usuario
         fields = [ "username" ,"nombre_empresa", "rut_empresa", "email", "password1", "password2"]
-
 
 class EmpleadoForm(UserCreationForm):
      class Meta:
@@ -19,7 +17,6 @@ class ProveedorForm(forms.ModelForm):
     class Meta: 
         model = Proveedor
         fields = ['nombre', 'rubro', 'contacto', 'otro']
-
 
 class usuarioForm(forms.ModelForm):
         class Meta:
@@ -39,6 +36,3 @@ class HuespedForm(forms.ModelForm):
     class Meta:
         model = Huesped
         fields = ['nombre_huesped','nombre_empresa','habitacion_asignada']
-
-
-     

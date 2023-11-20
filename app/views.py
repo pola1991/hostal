@@ -91,8 +91,6 @@ def perfilCliente(request):
 
 
 def eliminarProveedor(request, id):
-    
-
     try:
         proveedor = Proveedor.objects.get(id=id)
     except:
