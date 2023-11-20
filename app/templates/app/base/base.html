@@ -42,8 +42,9 @@
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'formu_create' %}" id="registrarHabitacion">Añadir Habitaciones</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'hab' %}">Administrar Habitaciones</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'addProveedor' %}" id="registrarProveedor" >Añadir Proveedor</a></li>
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readProveedor' %}" id="verProveedor">Ver Proveedores</a></li>
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Añadir Huesped</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readProveedor' %}" id="verProveedor">Administrar Proveedores</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'formu_createh' %}">Añadir Huesped</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'huespedes' %}" id="verProveedor">Administrar Huespedes</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Generar ordén de Compra</a></li>
                   {% endif %}
                   {%  if user.es_empleado and user.username != 'paula' %}

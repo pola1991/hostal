@@ -144,7 +144,7 @@ def formu_delete(request, id):
         # Manejar el caso en el que la habitación no existe
         return redirect('hab')  # Puedes redirigir a donde desees en este caso
 
-<<<<<<< HEAD
+
 
 def addComedores(request):
     data = {
@@ -176,7 +176,7 @@ def readComedor(request):
         'comedor': comedor
     }
     return render (request, 'app/comedores/readComedor.html', data)
-=======
+
 def huespedes(request):
     huesped = Huesped.objects.all()
     datos = {
@@ -218,4 +218,3 @@ def formu_deleteh(request, id):
         return redirect('huespedes')  # Puedes redirigir a donde desees en este caso
 
 
->>>>>>> 5421f9e8c3d0b5ac905a0e8db8116f6348040ac9

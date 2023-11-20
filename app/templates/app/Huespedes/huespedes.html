@@ -19,7 +19,7 @@
 </head>
 <body>
 
-
+    <center><h1>Tabla de huespedes</h1></center>
     {% csrf_token %}
 
     <div class="container">
@@ -29,6 +29,8 @@
                 <th class="scope">Nombre del huesped</th>
                 <th class="scope">Nombre de la empresa</th>
                 <th class="scope">Habitacion asignada</th>
+                <th class="scope"></th>
+                <th class="scope"></th>
     
             </tr>
                 
@@ -40,11 +42,11 @@
                     <th>{{h.nombre_huesped}}</th>
                     <th>{{h.nombre_empresa}}</th>
                     <th>{{h.habitacion_asignada}}</th>
-                </tr>
-                <th> <a href="{% url 'formu_updateh' h.id%}"><button class="btn btn-warning" style="color: white;">UPDATE</button></a></th>
-                <th> <a href="{% url 'formu_deleteh' h.id%}"><button class="btn btn-danger" style="color: white;">DELETE</button></a></th>
+                    <th> <a href="{% url 'formu_updateh' h.id%}"><button class="btn btn-warning" style="color: white;">UPDATE</button></a></th>
+                    <th> <a href="{% url 'formu_deleteh' h.id%}"><button class="btn btn-danger" style="color: white;">DELETE</button></a></th>
                        
                 {% endfor %}
+                </tr>
             </tbody>
         </table>
         <a href="{% url 'formu_createh'%}"><button class="btn btn-success">Create</button></a>
