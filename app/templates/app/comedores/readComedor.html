@@ -1,0 +1,39 @@
+{% extends 'app/base/base.html' %}
+{% load crispy_forms_tags %}
+{% block contenido %} 
+
+   
+      
+        <div class="container" style="min-height: 60vh;">
+             
+            <h1 class="card-header"> Gestión de Platos </h1>
+            <br>
+            <table class="table table-striped table-hover table-responsive-sm" >
+                <thead style="color: #0097B2">
+                    <tr>
+                        <th class="scope"style="color: #0097B2"> ● </th>
+                        <th class="scope"> NOMBRE PLATO </th>
+                        <th class="scope"> PRECIO </th>
+                        <th class="scope"> SERVICIO COMEDOR </th>
+                        <th class="scope"> BORRAR</th>
+                        
+                    </tr>
+                </thead>
+                <tbody style="color: #025b6a">
+                    {% for c in comedor  %}
+
+                    <tr>
+                        <td style="color: #0097B2">● </td>
+                        <td>{{c.nombre_plato}}</td>
+                        <td>{{c.precio}}</td>
+                        <td>{{c.servicio_comedor}}</td>
+                        <td><a href="{% url 'eliminarComedor' c.id %}">❌</a></td>
+                        
+                       
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        
+{% endblock %} 

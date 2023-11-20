@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Proveedor</title>
+</head>
+<body>
+    <h2>¿Está seguro de que desea eliminar este plato?</h2>
+    <p>{{ comedor.nombre_plato }}, {{ comedor.precio }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Eliminar">
+        <button><a href="{% url 'readComedor' %}">Cancelar</a></button>
+    </form>
+
+    <script>
+        function confirmarEliminacion() {
+            return confirm('¿Está seguro de que desea eliminar este plato?');
+           
+        }
+
+      
+    </script>
+</body>
+</html>

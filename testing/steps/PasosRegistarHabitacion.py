@@ -1,6 +1,9 @@
 from behave import given, when, then
 from selenium.webdriver.common.by import By
 from conexion import webapp
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 driver = webapp.get_driver()
 
@@ -25,7 +28,7 @@ def ingresa_credenciales_secretaria7(context):
     driver.find_element(By.XPATH, "/html/body/div/div/div/div/div[2]/form/div[3]/input").click()
     
 
-@when(u'Ingreso exitoso como secretaria')
+@when(u'Ingreso exitoso secretaria')
 def ingresa_a_la_cuenta7(context):
     driver.implicitly_wait(5)
     if(driver.find_element(By.XPATH, "//*[@id='navbarNavDropdown']/ul[2]/li/a").is_displayed()):
@@ -41,7 +44,7 @@ def hago_click_en_boton_reserva7(context, link):
 
 @when(u'Hago click en enlace para registrar habitaciones "{link}"')
 def hago_click_en_enlace_add_habitacion(context, link):
-    driver.find_element(By.ID, "registrarProveedor").click()
+    driver.find_element(By.ID, "registrarHabitacion").click()
 
 
 @when(u'Ingreso datos al formulario de registro de habitaciones')
@@ -51,10 +54,21 @@ def ingreso_datos_formulario_registro_habitacion(context):
     driver.find_element(By.XPATH, "//*[@id='id_precio']").send_keys(92119123)
     driver.find_element(By.XPATH, "//*[@id='id_n_camas']").send_keys(2)
     driver.find_element(By.XPATH, "//*[@id='id_descripcion']").send_keys("N/A")
-    driver.find_element(By.XPATH, "//*[@id='id_estado_habitacion']").send_keys("Disponible")
+
+    # Espera a que el elemento 'id_estado_habitacion' sea clicle y luego haz clic en él
+    wait = WebDriverWait(driver, 10)
+    element = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id='id_estado_habitacion']")))
+    element.click()
+
     driver.implicitly_wait(5)
-    driver.find_element(By.XPATH, "//*[@id='contenido']/div/div/button").submit()
+
+    # Selecciona una opción del dropdown
+    element_option = wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@id='id_estado_habitacion']/option[2]")))
+    element_option.click()
+
+    driver.implicitly_wait(5)
     
+    driver.find_element(By.XPATH, "//*[@id='contenido']/div/div/form/button").submit()
 
 @then(u'Se registran la habitacion')
 def se_registra_la_habitacion(context):

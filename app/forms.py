@@ -36,4 +36,8 @@ class HabitacionForm(forms.ModelForm):
         required = {'imagen': False}
 
 
+class ComedorForm(forms.ModelForm):
+    class Meta:
+        model= Comedor
+        fields= ['nombre_plato','precio','servicio_comedor']
      

@@ -37,8 +37,9 @@
                 <ul class="dropdown-menu ms-auto">
                   {% if user.username == 'paula' %}
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'registroEmpleado' %}">Añadir empleado</a></li>
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="#">Administrar Comedor</a></li>
-                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'formu_create' %}">Añadir Habitaciones</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'addComedores' %}" id="registrarComedor">Añadir Comedor</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readComedor' %}" id="verPlatos">Administrar Comedor</a></li>
+                  <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'formu_create' %}" id="registrarHabitacion">Añadir Habitaciones</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;"href="{% url 'hab' %}">Administrar Habitaciones</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'addProveedor' %}" id="registrarProveedor" >Añadir Proveedor</a></li>
                   <li><a class="dropdown-item" style="color: #0097B2; font-size: 18px;" href="{% url 'readProveedor' %}" id="verProveedor">Ver Proveedores</a></li>

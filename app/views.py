@@ -134,3 +134,35 @@ def formu_delete(request, id):
     except Habitacion.DoesNotExist:
         # Manejar el caso en el que la habitación no existe
         return redirect('hab')  # Puedes redirigir a donde desees en este caso
+
+
+def addComedores(request):
+    data = {
+        'form' : ComedorForm()
+    }
+    if request.method == 'POST':
+        formulario = ComedorForm(request.POST)
+        
+        if formulario.is_valid:
+            formulario.save()
+            data['mensaje'] = 'Guardado exitosamente'
+
+    return render(request,'app/comedores/addComedores.html', data)
+
+def eliminarComedor(request, id):
+    comedor = Comedor.objects.get(id=id)
+
+    if request.method == 'POST':
+        comedor.delete()
+        return redirect('readComedor')
+
+    return render(request, 'app/comedores/eliminarComedor.html', {'comedor': comedor})
+
+
+
+def readComedor(request):
+    comedor = Comedor.objects.all()
+    data = {
+        'comedor': comedor
+    }
+    return render (request, 'app/comedores/readComedor.html', data)
