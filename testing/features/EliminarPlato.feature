@@ -1,12 +1,12 @@
-Feature: Eliminar proveedor del sistema
+Feature: Eliminar plato del sistema
 Scenario: Gestionar proveedores
-    Given Accedo a direccion http "http://127.0.0.1:8000/"
-    When Hago click en loguearme "//*[@id='navbarNavDropdown']/ul/li[3]/a"
-    And Ingresa las credencial
-    And Ingreso con exito a cuenta
-    And Hago click reservar "//*[@id='navbarNavDropdown']/ul/li[3]/a"
-    And Hago click en enlace para ver proveedor "#verProveedor"
-    And Veo los proveedores "http://127.0.0.1:8000/readProveedor/"
-    And Hago click en boton eliminar "//*[@id='contenido']/div/table/tbody/tr[1]/td[6]/a"
-    And Confirmacion "/html/body/h2"
-    Then puedo ver proveedor borrado "http://127.0.0.1:8000/readProveedor/"
+    Given Accedo direccion http "http://127.0.0.1:8000/"
+    When Hago click para loguearme como secretaria "//*[@id='navbarNavDropdown']/ul/li[3]/a"
+    And Digita credenciales
+    And Ingreso con exito cuenta
+    And Selecciono haciendo click en reservas "//*[@id='navbarNavDropdown']/ul/li[3]/a"
+    And Hago click en enlace para ver platos "#verPlatos"
+    And Veo los platos "http://127.0.0.1:8000/readComedor/"
+    And Hago click en boton eliminar platos "//*[@id="contenido"]/div/table/tbody/tr[3]/td[5]/a"
+    And Hago click en Confirmacion 
+    Then puedo ver el plato borrado "http://127.0.0.1:8000/readComedor/"
