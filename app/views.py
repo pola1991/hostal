@@ -123,8 +123,6 @@ def formu_create(request):
     return render(request, 'app/Habitaciones/form.html', datos)
 
 def formu_update(request, id):
-    
-
     try:
         habitacion = Habitacion.objects.get(id=id) 
     except:
@@ -133,7 +131,17 @@ def formu_update(request, id):
     datos = {
         'form': HabitacionForm(instance=habitacion)
     }
+    if request.method == 'POST':
+        formulario = HabitacionForm(request.POST, instance= habitacion)
+        if formulario.is_valid:
+            formulario.save()
+            datos['mensaje'] = "Modificado exitosamente"
     return render(request, 'app/Habitaciones/formu_update.html', datos)
+
+
+
+
+
 
 def formu_delete(request, id):
     try:

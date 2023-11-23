@@ -15,7 +15,7 @@ from app.models import *
     ('hab'),
     ('formu_create'),
     ('readComedor'),
-    ('formu_createh'),
+    ('formu_create'),
     ('addComedores'),
     ('huespedes'),
 ])
@@ -59,7 +59,7 @@ def test_user_login(client, create_empleado_test_user,user_data):
 @pytest.mark.django_db
 def test_user_logout(client, authenticated_user):
     logout_url = urls.reverse('logout')
-    resp = client.get(logout_url)
+    resp = client.post(logout_url)
     assert resp.status_code == 302
     assert resp.url == urls.reverse('home')
 
@@ -98,8 +98,11 @@ def test_update_habitacion(client, create_habitacion_test, update_habitacion_dat
     habitacion_model = Habitacion
     assert habitacion_model.objects.count() == 1
     uptade_habitacion_url = urls.reverse('formu_update', kwargs= {'id': habitacion_model.objects.first().pk })
-    resp = client.update(uptade_habitacion_url, update_habitacion_data)
-    assert resp.status_code == 302
+    resp = client.post(uptade_habitacion_url, data=update_habitacion_data)
+
+    assert resp.status_code == 200
+
+
 
 #Eliminar habitacion
 @pytest.mark.django_db
