@@ -14,6 +14,10 @@ from app.models import *
     ('readProveedor'),
     ('hab'),
     ('formu_create'),
+    ('readComedor'),
+    ('formu_createh'),
+    ('addComedores'),
+    ('huespedes'),
 ])
 @pytest.mark.django_db
 def test_render_views(client, param):
@@ -102,6 +106,41 @@ def test_update_habitacion(client, create_habitacion_test, update_habitacion_dat
 def test_delete_habitacion(client, create_habitacion_test):
     habitacion_model = Habitacion
     assert habitacion_model.objects.count() == 1
-    delete_habitacion_url = urls.reverse('formu_update', kwargs= {'id': habitacion_model.objects.first().pk })
+    delete_habitacion_url = urls.reverse('formu_delete', kwargs= {'id': habitacion_model.objects.first().pk })
     resp = client.delete(delete_habitacion_url)
-    assert resp.status_code == 200
+    assert resp.status_code == 302
+
+
+#Crear huesped
+@pytest.mark.django_db
+def test_crear_huesped(client, create_empleado_test_user,create_habitacion_test):
+    huesped_model = Huesped
+    habitacion_model = Habitacion
+    user_model = get_user_model()
+    assert habitacion_model.objects.count() == 1
+    assert user_model.objects.count() == 1
+    assert huesped_model.objects.count() == 0
+    add_huesped_url = urls.reverse('formu_createh')
+    resp = client.post(add_huesped_url, {'nombre_huesped':'asdasdasd', 'nombre_empresa': user_model.objects.first().pk , 'habitacion_asignada':habitacion_model.objects.first().pk})
+    assert huesped_model.objects.count() == 1
+    assert resp.status_code == 302
+
+#Eliminar huesped
+@pytest.mark.django_db
+def test_delete_huesped(client, create_huesped_test):
+    huesped_model = Huesped
+    assert huesped_model.objects.count() == 1
+    delete_huesped_url = urls.reverse('formu_deleteh', kwargs= {'id': huesped_model.objects.first().pk})
+    resp = client.delete(delete_huesped_url)
+    assert resp.status_code == 302
+
+
+#Crear Comedor
+@pytest.mark.django_db
+def test_crear_comedor(client, habitacion_data):
+    habitacion_model = Habitacion
+    assert habitacion_model.objects.count() == 0
+    add_habitacion_url = urls.reverse('formu_create')
+    resp = client.post(add_habitacion_url,habitacion_data)
+    assert habitacion_model.objects.count() == 1
+    assert resp.status_code == 302

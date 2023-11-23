@@ -31,6 +31,7 @@ def user_data():
     return {
         'username':'user_name',
         'rut_empresa':'77.123.456-6', 
+        'nombre_empresa': 'user_company',
         'cargo':'manager', 
         'email': 'empleado_email@email.com',
         'password': 'SDBsda456dsa'
@@ -79,6 +80,22 @@ def update_habitacion_data():
     }
 
 @pytest.fixture
+def huested_test_data():
+    return {
+        'nombre_huesped': 'adasdadas',
+        'nombre_empresa': '1',
+        'habitacion_asignada': '1'
+    }
+
+@pytest.fixture
+def comedor_test_data():
+    return {
+        'nombre_plato': 'adasdadas',
+        'precio': '1',
+        'servicio_comedor': '1'
+    }
+
+@pytest.fixture
 def create_proveedor_test(proveedor_data):
     proveedor_model = Proveedor
     proveedor_test = proveedor_model.objects.create(**proveedor_data)
@@ -97,6 +114,20 @@ def create_empleado_test_user(user_data):
     test_user.set_password(user_data.get('password'))
     return test_user
 
+@pytest.fixture
+def create_cliente_test_user(user_data):
+    user_model = get_user_model()
+    test_user = user_model.objects.create_user(**user_data)
+    test_user.set_password(user_data.get('password'))
+    return test_user
+
+@pytest.fixture
+def create_huesped_test(create_empleado_test_user,create_habitacion_test,huested_test_data):
+    huesped_model = Huesped
+    habitacion_model = Habitacion
+    user_model = get_user_model()
+    huesped_test = huesped_model.objects.create(**{'nombre_huesped':'asdasdasd', 'nombre_empresa': user_model.objects.first() , 'habitacion_asignada':habitacion_model.objects.first()})
+    return huesped_test
 
 @pytest.fixture
 def authenticated_user(client, user_data):
