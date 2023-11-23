@@ -53,7 +53,7 @@ def confirmacion_eliminar_proveedor(context, link):
     driver.find_element(By.XPATH, "/html/body/form/input[2]").click()
    
 
-@then(u'puedo ver proveedor borrado"{url}"')
+@then(u'puedo ver proveedor borrado "{url}"')
 def puedo_ver_proveedores(context,url):
     driver.implicitly_wait(20000)
     driver.get(url)

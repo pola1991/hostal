@@ -16,7 +16,7 @@ def localizador1(context,link):
     driver.find_element(By.XPATH,link).click()
     
 
-@when(u'Ingreso solo password dejando password en blanco')
+@when(u'Ingreso solo usuario dejando password en blanco')
 def ingresa_solo_usuario(context):
     driver.find_element(By.XPATH,"//*[@id='id_username']").clear()
     driver.find_element(By.XPATH,"//*[@id='id_username']").send_keys("paula")

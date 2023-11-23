@@ -45,7 +45,7 @@ def hago_click_en_enlace_registrar(context, link):
 
 @when(u'Completo formulario empleado')
 def ingreso_datos_formulario_registro_empleado(context):
-    driver.find_element(By.XPATH, "//*[@id='id_username']").send_keys("Ray")
+    driver.find_element(By.XPATH, "//*[@id='id_username']").send_keys("Rayyy")
     driver.find_element(By.XPATH, "//*[@id='id_first_name']").send_keys("Raymond")
     driver.find_element(By.XPATH, "//*[@id='id_last_name']").send_keys("Durkin")
     driver.find_element(By.XPATH, "//*[@id='id_cargo']").send_keys("Asesor")

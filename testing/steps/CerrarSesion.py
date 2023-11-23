@@ -12,7 +12,7 @@ def step_acceso_a_la_url(context,url):
 def ingresa_credenciales(context):
     driver.find_element(By.XPATH,"//*[@id='id_username']").clear()
     driver.find_element(By.XPATH,"//*[@id='id_username']").send_keys("paula")
-    driver.find_element(By.NAME,'password').send_keys('12345678')
+    driver.find_element(By.NAME,'password').send_keys('paula')
     driver.find_element(By.XPATH,"/html/body/div/div/div/div/div[2]/form/div[3]/input").click()
 
 @when(u'Apreto el link para cerrar sesion')

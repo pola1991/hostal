@@ -17,7 +17,7 @@ def hago_click_en_enlace_registrar(context, link):
 
 @when(u'Completo formulario cliente')
 def ingreso_datos_formulario_registro_cliente(context):
-    driver.find_element(By.XPATH, "//*[@id='id_username']").send_keys("Samsung_sur")
+    driver.find_element(By.XPATH, "//*[@id='id_username']").send_keys("Samsung_suraa")
     driver.find_element(By.XPATH, "//*[@id='id_nombre_empresa']").send_keys("Samsung")
     driver.find_element(By.XPATH, "//*[@id='id_rut_empresa']").send_keys("100.223.234-3")
     driver.find_element(By.XPATH, "//*[@id='id_email']").send_keys("samsung@gmail.com")
@@ -28,7 +28,7 @@ def ingreso_datos_formulario_registro_cliente(context):
 
 @then(u'Se registra el cliente')
 def se_registran_los_clientes(context):
-    if(driver.find_element(By.XPATH, "//*[@id='navbarNavDropdown']/ul[2]/li/a").is_displayed()):
+    if(driver.find_element(By.XPATH, "//*[@id='navbarNavDropdown']/ul[1]/li[4]/a").is_displayed()):
         print('Registro correcto')
     else:
         print('Registro fallido')
