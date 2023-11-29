@@ -10,8 +10,9 @@ driver = webapp.get_driver()
 
 @given(u'Ingreso a la url index9 "{url}"')
 def acceso_a_la_url9(context, url):
+    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
-
+    driver.maximize_window()
 
 @when(u'Hago click y me logueo como secretaria9 "{link}"')
 def localiza_enl_login9(context, link):

@@ -7,7 +7,9 @@ driver = webapp.get_driver()
 
 @given(u'Accedo direccion http "{url}"')
 def url(context, url):
+    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
+    driver.maximize_window()
 
 @when(u'Hago click para loguearme como secretaria "{link}"')
 def localiza_enlace(context, link):
@@ -59,3 +61,4 @@ def confirmacion_eliminar_plato(context):
 def puedo_ver_platos(context,url):
     driver.implicitly_wait(20000)
     driver.get(url)
+    driver.get("http://127.0.0.1:8000/accounts/logout/")

@@ -2,8 +2,6 @@ import pytest
 from django.contrib.auth import get_user_model, get_backends
 from app.models import *
 
-print(get_backends())
-
 @pytest.fixture
 def cliente_user_data():
     return {

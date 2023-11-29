@@ -21,4 +21,5 @@ urlpatterns = [
     path('formu_createh', formu_createh, name='formu_createh'),
     path('formu_updateh/<int:id>', formu_updateh, name='formu_updateh'),
     path('formu_deleteh/<int:id>/', formu_deleteh, name='formu_deleteh'),
+    path('delete_last_user/', delete_last_user, name='delete_last_user'),
 ]
