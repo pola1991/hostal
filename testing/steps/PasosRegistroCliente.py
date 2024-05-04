@@ -31,7 +31,9 @@ def ingreso_datos_formulario_registro_cliente(context):
 
 @then(u'Se registra el cliente')
 def se_registran_los_clientes(context):
-    assert driver.find_element(By.XPATH, "//*[@id='navbarNavDropdown']/ul[1]/li[4]/a").is_displayed()
+    assert driver.find_element(By.XPATH, "//*[@id='linkPerfilCliente']").is_displayed()
     time.sleep(2)
     driver.get("http://127.0.0.1:8000/delete_last_user/")
     driver.get("http://127.0.0.1:8000/accounts/logout/")
+
+

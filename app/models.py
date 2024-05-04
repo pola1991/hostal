@@ -54,9 +54,15 @@ class ServicioComedor(models.Model):
 
 
 class Comedor(models.Model):
+    DISPONIBILIDAD_CHOICES = (
+        ('Servicio ejecutivo', 'Servicio ejecutivo'),
+        ('Especial', 'Especial'),
+        ('General', 'General'),
+    )
+
     nombre_plato = models.CharField(max_length=30)
     precio = models.IntegerField()
-    servicio_comedor = models.ForeignKey(ServicioComedor, on_delete=models.SET_NULL, null=True)
+    servicio_comedor = models.CharField(max_length=50, choices=DISPONIBILIDAD_CHOICES, default='General')
 
     class Meta:
         verbose_name = 'Comedor'
@@ -64,6 +70,7 @@ class Comedor(models.Model):
 
     def __str__(self):
         return f"{self.nombre_plato} {self.precio} {self.servicio_comedor}"
+
 
 
 class Huesped(models.Model):

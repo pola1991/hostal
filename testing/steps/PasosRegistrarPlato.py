@@ -16,9 +16,8 @@ def acceso_a_la_url9(context, url):
 
 @when(u'Hago click y me logueo como secretaria9 "{link}"')
 def localiza_enl_login9(context, link):
-    # //*[@id="navbarNavDropdown"]/ul/li[3]/a
     driver.implicitly_wait(5)
-    driver.find_element(By.XPATH, link).click()
+    driver.find_element(By.ID, link).click()
 
 
 @when(u'Ingreso credenciales de secretaria9')
@@ -40,7 +39,7 @@ def ingresa_a_la_cuenta9(context):
 
 @when(u'Hago click en el enlace reservas9 "{link}"')
 def hago_click_en_boton_reserva9(context, link):
-    driver.find_element(By.XPATH, link).click()
+    driver.find_element(By.ID, link).click()
 
 
 @when(u'Hago click en enlace para registrar plato')
@@ -50,7 +49,7 @@ def hago_click_en_enlace_ver_plato(context):
 
 @when(u'Ingreso datos al formulario de registro platos')
 def ingreso_datos_formulario_registro_platos(context):
-    driver.find_element(By.XPATH, "//*[@id='id_nombre_plato']").send_keys("Pescado con puré")
+    driver.find_element(By.XPATH, "//*[@id='id_nombre_plato']").send_keys("Tortilla de verduras")
     driver.find_element(By.XPATH, "//*[@id='id_precio']").send_keys(15000)
     
     # Espera a que el elemento 'id_estado_habitacion' sea clicle y luego haz clic en él

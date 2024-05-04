@@ -1,5 +1,5 @@
 Feature: Eliminar plato del sistema
-Scenario: Gestionar proveedores
+Scenario: Gestionar platos
     Given Accedo direccion http "http://127.0.0.1:8000/"
     When Hago click para loguearme como secretaria "linkIniciarSesion"
     And Digita credenciales

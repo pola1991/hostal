@@ -31,3 +31,4 @@ def ingresa_a_la_cuenta(context):
     assert driver.current_url == "http://127.0.0.1:8000/accounts/login/"
     time.sleep(2)
     driver.get("http://127.0.0.1:8000/accounts/logout/")
+

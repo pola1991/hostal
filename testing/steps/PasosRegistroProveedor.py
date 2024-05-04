@@ -40,8 +40,8 @@ def hago_click_en_enlace_ver_proveedores(context, link):
 
 @when(u'Ingreso datos al formulario de registro de proveedores')
 def ingreso_datos_formulario_registro_proveedores(context):
-    driver.find_element(By.XPATH, "//*[@id='id_nombre']").send_keys("Colgate")
-    driver.find_element(By.XPATH, "//*[@id='id_rubro']").send_keys("Pasta de dientes")
+    driver.find_element(By.XPATH, "//*[@id='id_nombre']").send_keys("Rosen")
+    driver.find_element(By.XPATH, "//*[@id='id_rubro']").send_keys("Camas")
     driver.find_element(By.XPATH, "//*[@id='id_contacto']").send_keys(92119123)
     driver.find_element(By.XPATH, " //*[@id='id_otro']").send_keys("N/A")
     driver.implicitly_wait(5)

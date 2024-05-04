@@ -15,7 +15,7 @@ def url(context, url):
 def localiza_enlace(context, link):
     #//*[@id="navbarNavDropdown"]/ul/li[3]/a
     driver.implicitly_wait(5)
-    driver.find_element(By.XPATH, link).click()
+    driver.find_element(By.ID, link).click()
 
 @when(u'Digita credenciales')
 def credenciales(context):
@@ -33,7 +33,7 @@ def ingreso_cuenta(context):
 
 @when(u'Selecciono haciendo click en reservas "{link}"')
 def presiono_reserva(context, link):
-    driver.find_element(By.XPATH, link).click()
+    driver.find_element(By.ID, link).click()
 
 
 @when(u'Hago click en enlace para ver platos "{link}"')
