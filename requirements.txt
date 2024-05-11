@@ -1,7 +1,7 @@
-django == 4.2.6
-mysqlclient == 2.1.0
-crispy-bootstrap4 == 2022.1
-pillow == 9.1.1
+django
+mysqlclient
+crispy-bootstrap4
+pillow
 
-
-#pip install pytest pytest-django pytest-cov
+#pip install pytest pytest-django pytest-cov pyunit
+#sonar-scanner.bat -D"sonar.projectKey=Hostal" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_ef6bd0b9445700a1845c62deee3e876bd5c867af"

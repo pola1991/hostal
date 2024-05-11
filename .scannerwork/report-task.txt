@@ -1,0 +1,6 @@
+projectKey=Hostal
+serverUrl=http://localhost:9000
+serverVersion=10.5.1.90531
+dashboardUrl=http://localhost:9000/dashboard?id=Hostal
+ceTaskId=33dcf8b0-9e75-418c-bffa-9d7e578fae00
+ceTaskUrl=http://localhost:9000/api/ce/task?id=33dcf8b0-9e75-418c-bffa-9d7e578fae00
