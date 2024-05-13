@@ -6,7 +6,6 @@ import time
 driver = webapp.get_driver()
 @given(u'Accedo a la url para darle clik a boton inicio de sesion "{url}"')
 def step_acceso_a_la_url5(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -19,4 +18,3 @@ def localiza_enlace_logi5(context,link):
 def ingresa_a_la_cuenta(context):
     
     assert driver.current_url == "http://127.0.0.1:8000/accounts/login/"
-    driver.get("http://127.0.0.1:8000/accounts/logout/")

@@ -10,7 +10,6 @@ wait = WebDriverWait(driver, 20)
 
 @given(u'Accedo a direccion http "{url}"')
 def url(context, url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -72,4 +71,4 @@ def confirmacion_eliminar_proveedor(context, link):
 @then(u'puedo ver proveedor borrado "{url}"')
 def puedo_ver_proveedores(context,url):
     assert driver.current_url == "http://127.0.0.1:8000/readProveedor/"
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
+    driver.find_element(By.ID,"linkCerrarSesion").click()

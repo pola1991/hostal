@@ -8,7 +8,6 @@ driver = webapp.get_driver()
 
 @given(u'Accedo a la url index para luego registrar cliente "{url}"')
 def acceso_a_la_url6(context, url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -34,6 +33,5 @@ def se_registran_los_clientes(context):
     assert driver.find_element(By.XPATH, "//*[@id='linkPerfilCliente']").is_displayed()
     time.sleep(2)
     driver.get("http://127.0.0.1:8000/delete_last_user/")
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
 
 

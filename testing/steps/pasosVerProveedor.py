@@ -7,7 +7,6 @@ driver = webapp.get_driver()
 
 @given(u'Accedo a la url de home "{url}"')
 def step_acceso_a_la_url(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -46,5 +45,5 @@ def hago_click_en_enlace_ver_proveedores(context, link):
 def veo_proveedores(context,url):
     assert driver.current_url == url
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
+    driver.find_element(By.ID,"linkCerrarSesion").click()
         

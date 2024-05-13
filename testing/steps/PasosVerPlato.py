@@ -7,7 +7,6 @@ driver = webapp.get_driver()
 
 @given(u'Ingreso a home "{url}"')
 def acceso_a_la_url8(context, url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -48,6 +47,6 @@ def hago_click_en_enlace_ver_platos(context, link):
 def veo_platos(context,url):
     assert driver.current_url == url
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
+    driver.find_element(By.ID,"linkCerrarSesion").click()
 
 

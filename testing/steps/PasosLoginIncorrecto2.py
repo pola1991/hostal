@@ -7,7 +7,6 @@ driver = webapp.get_driver()
 
 @given(u'Accedo a la url para hacer login con usuario numerico "{url}"')
 def acceso(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -29,4 +28,3 @@ def ingresa_solo_password(context):
 def no_ingreso(context):
     assert driver.current_url == "http://127.0.0.1:8000/accounts/login/"
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")

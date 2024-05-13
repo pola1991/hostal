@@ -10,7 +10,6 @@ driver = webapp.get_driver()
 
 @given(u'Ingreso a la url index9 "{url}"')
 def acceso_a_la_url9(context, url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -76,3 +75,4 @@ def se_registra_plato(context):
         print('Registro correcto')
     else:
         print('Registro fallido')
+    driver.find_element(By.ID,"linkCerrarSesion").click()

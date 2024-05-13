@@ -9,7 +9,6 @@ driver = webapp.get_driver()
 
 @given(u'Ingreso a la url index "{url}"')
 def acceso_a_la_url7(context, url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -56,4 +55,4 @@ def se_registra_la_habitacion(context):
     driver.get("http://127.0.0.1:8000/hab")
     assert driver.find_element(By.XPATH, "//*[@id='contenido']/div/table/tbody/tr/th[1]").is_displayed()
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
+    driver.find_element(By.ID,"linkCerrarSesion").click()

@@ -6,7 +6,6 @@ driver = webapp.get_driver()
 
 @given(u'Accedo a la url para registrar cliente con usuario en blanco "{url}"')
 def acceso(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -31,4 +30,3 @@ def ingresa_solo_password(context):
 def no_ingreso(context):
     assert driver.find_element(By.XPATH,"/html/body/div/div/div/div/div[2]/form/div[1]").is_displayed()
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")

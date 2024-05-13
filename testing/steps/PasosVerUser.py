@@ -6,7 +6,6 @@ driver = webapp.get_driver()
 
 @given(u'Accedo a la url home "{url}"')
 def step_acceso_a_la_url(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -38,4 +37,4 @@ def veo_perfil(context,link):
 
     assert driver.current_url == "http://127.0.0.1:8000/perfilCliente/"
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
+    driver.find_element(By.ID,"linkCerrarSesion").click()

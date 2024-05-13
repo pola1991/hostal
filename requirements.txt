@@ -2,6 +2,11 @@ django
 mysqlclient
 crispy-bootstrap4
 pillow
+pytest
+pytest-django
+pytest-cov
+behave
+selenium
 
 #pip install pytest pytest-django pytest-cov pyunit
 #sonar-scanner.bat -D"sonar.projectKey=Hostal" -D"sonar.sources=." -D"sonar.host.url=http://localhost:9000" -D"sonar.token=sqp_ef6bd0b9445700a1845c62deee3e876bd5c867af"

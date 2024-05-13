@@ -6,7 +6,6 @@ import time
 driver = webapp.get_driver()
 @given(u'Ingreso a la url para hacer inicio de sesion "{url}"')
 def step_acceso_a_la_url(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 

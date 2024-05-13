@@ -55,7 +55,10 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold" id="linkCerrarSesion" style="color: #0097B2; font-size: 18px;" href="{% url 'logout' %}">Cerrar Sesión</a>
+                <form  id="linkCerrarSesion" method="post" action="{% url 'logout' %}">
+                  {% csrf_token %}
+                  <button type="submit" id="linkCerrarSesion" class="nav-link fw-bold" style="color: #0097B2; font-size: 18px;">Cerrar Sesión</button>
+                </form>
               </li>
               {% else %}
               <li class="nav-item">

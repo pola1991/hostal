@@ -6,7 +6,6 @@ import time
 driver = webapp.get_driver()
 @given(u'Accedo a la url "{url}"')
 def step_acceso_a_la_url(context,url):
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
     driver.get(url)
     driver.maximize_window()
 
@@ -27,4 +26,4 @@ def ingresa_credenciales(context):
 def ingresa_a_la_cuenta(context):
     assert driver.find_element(By.XPATH,"//*[@id='navbarNavDropdown']/ul[2]/li/a").is_displayed()
     time.sleep(2)
-    driver.get("http://127.0.0.1:8000/accounts/logout/")
+    driver.find_element(By.ID,"linkCerrarSesion").click()
